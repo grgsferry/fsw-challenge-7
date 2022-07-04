@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include ('partials/bootstrap-link') %>
+    <title>Login</title>
+  </head>
+  <body>
+    <%- include ('partials/navbar-guest') %>
+
+    <div class="mt-5 container d-flex justify-content-center">
+      <div class="card" style="width: 48rem">
+        <div class="px-5 py-5">
+          <h1>Login</h1>
+          <% if (messages.error) { %>
+          <h5><%= messages.error %></h5>
+          <% } %>
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input class="form-control form-control-lg" type="text" id="username" name="username" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input class="form-control form-control-lg" type="password" id="password" name="password" />
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+          </form>
+          <div class="mt-2 text-center">
+            <p>Don't have an account? <a href="/register">Register here!</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

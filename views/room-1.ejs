@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include ('partials/bootstrap-link') %>
+    <title>Room</title>
+  </head>
+  <body>
+    <%- include ('partials/navbar') %>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">Rock Paper Scissors</h1>
+        <p class="lead"><strong>Room <%=room.name%></strong> | <%=room.uuid%></p>
+        <p>
+          <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Game Rules</button>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            A classic two-person game. Players start each round by choosing fist for rock, flat hand for paper, or their index and middle finger for scissors. Rock crushes scissors, scissors cut paper, and paper covers rock.
+          </div>
+        </div>
+      </div>
+      <div>
+        <form action="/web/room/<%=room.gameid%>/<%=room.uuid%> " method="POST">
+          <div class="row mb-3">
+            <div class="col form-check text-center">
+              <div class="card" style="width: auto">
+                <div class="card-body">
+                  <h5 class="card-title">First Choice</h5>
+                  <p class="card-text">Choose 1 suit as your 1st choice!</p>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-lg"> <input type="radio" name="suit_1" id="suit1_rock" value="rock" />Rock<br />&#129521;</label>
+                    <label class="btn btn-outline-secondary btn-lg"> <input type="radio" name="suit_1" id="suit1_paper" value="paper" />Paper<br />&#128196;</label>
+                    <label class="btn btn-outline-secondary btn-lg"> <input type="radio" name="suit_1" id="suit1_scissors" value="scissors" />Scissors<br />&#9986;</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col form-check text-center">
+              <div class="card" style="width: auto">
+                <div class="card-body">
+                  <h5 class="card-title">Second Choice</h5>
+                  <p class="card-text">Choose 1 suit as your 2nd choice!</p>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-lg"> <input type="radio" name="suit_2" id="suit2_rock" value="rock" />Rock<br />&#129521;</label>
+                    <label class="btn btn-outline-secondary btn-lg"> <input type="radio" name="suit_2" id="suit2_paper" value="paper" />Paper<br />&#128196;</label>
+                    <label class="btn btn-outline-secondary btn-lg"> <input type="radio" name="suit_2" id="suit2_scissors" value="scissors" />Scissors<br />&#9986;</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col form-check text-center">
+              <div class="card" style="width: auto">
+                <div class="card-body">
+                  <h5 class="card-title">Third Choice</h5>
+                  <p class="card-text">Choose 1 suit as your 3rd choice!</p>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary btn-lg"> <input type="radio" name="suit_3" id="suit3_rock" value="rock" />Rock<br />&#129521;</label>
+                    <label class="btn btn-outline-secondary btn-lg"> <input type="radio" name="suit_3" id="suit3_paper" value="paper" />Paper<br />&#128196;</label>
+                    <label class="btn btn-outline-secondary btn-lg"> <input type="radio" name="suit_3" id="suit3_scissors" value="scissors" />Scissors<br />&#9986;</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Submit your choice!</button>
+        </form>
+      </div>
+    </div>
+    <%- include ('partials/bootstrap-js') %>
+    <script>
+      $(document).ready(function () {
+        $(".btn-outline-secondary").click(function () {
+          $(this).button("toggle");
+        });
+      });
+    </script>
+  </body>
+</html>

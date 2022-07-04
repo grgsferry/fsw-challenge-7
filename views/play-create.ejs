@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include ('partials/bootstrap-link') %>
+    <title>Play | Create</title>
+  </head>
+  <body>
+    <%- include ('partials/navbar') %>
+
+    <div class="container">
+      <% var pageTitle, pageDescription; %> <% pageTitle = 'Create Room'; %> <% pageDescription = 'In this page you can create a new room.'; %>
+      <div class="jumbotron">
+        <a class="btn btn-outline-secondary btn-sm" href="/web/play" role="button">&lt;</a>
+        <hr class="my-4" />
+        <h1 class="display-4"><%=pageTitle%></h1>
+        <p class="lead"><%=pageDescription%></p>
+        <hr class="my-4" />
+        <form class="form-inline" action="/web/play/create" method="POST">
+          <div class="form-group mr-sm-2">
+            <label for="name" class="sr-only">Room Name</label>
+            <input type="text" class="form-control form-control-lg" name="name" id="name" placeholder="Type new room name..." />
+          </div>
+          <button type="button" class="btn btn-outline-secondary btn-lg mr-2" onclick="makeid(5)">&#10227;</button>
+
+          <div class="form-group mr-sm-2">
+            <label for="game" class="sr-only">Available Games</label>
+            <select class="form-control form-control-lg" name="game" id="game" placeholder="Available Games">
+              <% games.forEach(game => { %>
+              <option><%= game.name %></option>
+              <% }) %>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-outline-primary btn-lg">Create</button>
+        </form>
+      </div>
+      <div class="container"></div>
+    </div>
+  </body>
+  <script>
+    function makeid(length) {
+      const newRoomForm = document.querySelectorAll("input#name");
+      var result = "";
+      var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      newRoomForm[0].value = result;
+    }
+  </script>
+</html>

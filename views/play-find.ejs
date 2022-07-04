@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include ('partials/bootstrap-link') %>
+    <title>Play | Find</title>
+  </head>
+  <body>
+    <%- include ('partials/navbar') %>
+
+    <div class="container">
+      <% var pageTitle, pageDescription; %> <% pageTitle = 'Find Room'; %> <% pageDescription = 'In this page you can find a created room.'; %>
+      <div class="jumbotron">
+        <a class="btn btn-outline-secondary btn-sm" href="/web/play" role="button">&lt;</a>
+        <hr class="my-4" />
+        <h1 class="display-4"><%=pageTitle%></h1>
+        <p class="lead"><%=pageDescription%></p>
+        <hr class="my-4" />
+        <form class="form-inline" action="/web/play/find" method="POST">
+          <div class="form-group mr-sm-2">
+            <label for="name" class="sr-only">Room Name</label>
+            <input type="text" class="form-control form-control-lg" name="name" id="name" placeholder="Type existing room name..."/>
+          </div>
+          <button type="submit" class="btn btn-outline-primary btn-lg">Take Me There!</button>
+        </form>
+      </div>
+      <%- include ('partials/bootstrap-js') %>
+  </body>
+</html>

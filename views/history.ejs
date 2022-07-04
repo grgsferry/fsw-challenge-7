@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include ('partials/bootstrap-link') %>
+    <title>Match History</title>
+  </head>
+  <body>
+    <%- include ('partials/navbar') %>
+    <div class="container">
+      <% var pageTitle, pageDescription; %> <% pageTitle = 'Match History'; %> <% pageDescription = 'In this page you can find all of your matches with your friends.'; %>
+      <div class="jumbotron">
+        <h1 class="display-4"><%=pageTitle%></h1>
+        <p class="lead"><%=pageDescription%></p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Room ID</th>
+                <th scope="col">Game Name</th>
+                <th scope="col">Result</th>
+                <th scope="col">Created At</th>
+              </tr>
+            </thead>
+            <% let i = 1 %>
+            <tbody>
+              <% matches.forEach(match => { %>
+              <tr>
+                <td scope="row"><%= i %></td>
+                <td><%= match.room.name %></td>
+                <td><%= match.room.game.name%></td>
+                <td><%= match.user_result %></td>
+                <td><%= match.createdAt %></td>
+              </tr>
+              <% i++ %> <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include ('partials/bootstrap-link') %>
+    <title>Play</title>
+  </head>
+  <body>
+    <%- include ('partials/navbar') %>
+    <div class="container">
+      <% var pageTitle, pageDescription; %> <% pageTitle = 'Play'; %> <% pageDescription = 'In this page you can create room or find room to play games with your friends.'; %>
+      <div class="jumbotron">
+        <h1 class="display-4"><%=pageTitle%></h1>
+        <p class="lead"><%=pageDescription%></p>
+        <hr class="my-4" />
+        <a class="btn btn-outline-primary btn-lg mr-2" href="/web/play/create" role="button">Create Room</a>
+        <a class="btn btn-outline-primary btn-lg" href="/web/play/find" role="button">Find Room</a>
+      </div>
+    </div>
+  </body>
+</html>

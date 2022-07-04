@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include ('partials/bootstrap-link') %>
+    <title>Edit User</title>
+  </head>
+  <body>
+    <%- include ('partials/navbar') %>
+
+    <div class="container">
+      <% var pageTitle, pageDescription; %> <% pageTitle = 'Edit User'; %> <% pageDescription = 'Just fill the fields you want to update! Do not forget to hit submit!'; %>
+      <div class="jumbotron">
+        <a class="btn btn-outline-secondary btn-sm" href="/web/home" role="button">&lt;</a>
+        <hr class="my-4" />
+        <h1 class="display-4"><%=pageTitle%></h1>
+        <p class="lead"><%=pageDescription%></p>
+      </div>
+      <form action="/web/home/edit-user" method="POST">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter new Username" name="username" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="text" class="form-control" id="email" placeholder="Enter new Email" name="email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter new Password" name="password" />
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

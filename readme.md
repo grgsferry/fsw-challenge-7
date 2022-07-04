@@ -55,6 +55,8 @@ sequelize db:seed:all
 node app.js
 ```
 
+- You can use `username:admin|password:1234` from Sequelize seeders to access as Player or as Admin. 
+
 ## Restful API Routes (Guest)
 
 ### No Authentication/Authorization
